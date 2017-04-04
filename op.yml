@@ -1,0 +1,25 @@
+name: npm-install
+description: runs npm install
+inputs:
+  srcDir:
+    dir:
+      default: .
+      description: directory containing the src
+  NPM_CONFIG_REGISTRY:
+    string:
+      constraints: { minLength: 1 }
+      description: API Key for gemfury.io
+      isSecret: true
+outputs:
+  srcDir:
+    dir:
+      description: directory containing the src
+run:
+  container:
+    cmd: [ npm, install]
+    envVars:
+      NPM_CONFIG_REGISTRY: $(NPM_CONFIG_REGISTRY)
+    dirs:
+      /src: srcDir
+    image: { ref: 'node:7.7' }
+    workDir: /src
