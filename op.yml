@@ -1,4 +1,4 @@
-name: npm-install
+name: github.com/opspec-pkgs/npm.install
 description: runs npm install
 inputs:
   srcDir:
@@ -7,9 +7,10 @@ inputs:
       description: directory containing the src
   NPM_CONFIG_REGISTRY:
     string:
-      constraints: { minLength: 1 }
+      constraints: { minLength: 1, format: uri }
       description: API Key for gemfury.io
       isSecret: true
+      default: https://registry.npmjs.org/
 outputs:
   srcDir:
     dir:
@@ -18,7 +19,7 @@ run:
   container:
     cmd: [ npm, install]
     envVars:
-      NPM_CONFIG_REGISTRY: $(NPM_CONFIG_REGISTRY)
+      NPM_CONFIG_REGISTRY:
     dirs:
       /src: srcDir
     image: { ref: 'node:7.7' }
