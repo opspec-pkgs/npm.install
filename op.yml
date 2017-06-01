@@ -5,10 +5,10 @@ inputs:
     dir:
       default: .
       description: directory containing the src
-  NPM_CONFIG_REGISTRY:
+  registry:
     string:
       constraints: { minLength: 1, format: uri }
-      description: API Key for gemfury.io
+      description: registry for npm to use during install
       isSecret: true
       default: https://registry.npmjs.org/
 outputs:
@@ -19,7 +19,7 @@ run:
   container:
     cmd: [ npm, install]
     envVars:
-      NPM_CONFIG_REGISTRY:
+      NPM_CONFIG_REGISTRY: $(registry)
     dirs:
       /src: srcDir
     image: { ref: 'node:7.7' }
