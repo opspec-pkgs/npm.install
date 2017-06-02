@@ -20,8 +20,7 @@ opctl run github.com/opspec-pkgs/npm.install#VERSION
 ## compose
 
 ```yaml
-run:
-  op:
-    pkg: { ref: github.com/opspec-pkgs/npm.install#VERSION }
-    inputs: { srcDir, registry }
+op:
+  pkg: { ref: github.com/opspec-pkgs/npm.install#VERSION }
+  inputs: { srcDir, registry }
 ```
