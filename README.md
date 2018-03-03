@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/opspec-pkgs/npm.install.svg?branch=master)](https://travis-ci.org/opspec-pkgs/npm.install)
 
+<img src="icon.svg" alt="icon" height="100px">
 
 # Problem statement
 
@@ -14,24 +15,24 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 ## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/npm.install#
+opctl pkg install github.com/opspec-pkgs/npm.install#1.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/npm.install#
+opctl run github.com/opspec-pkgs/npm.install#1.0.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/npm.install# }
+  pkg: { ref: github.com/opspec-pkgs/npm.install#1.0.0 }
   inputs:
     # params w/ default
-    registry:
     srcDir:
+    registry:
   outputs:
     srcDir:
 ```
