@@ -11,6 +11,7 @@ inputs:
       description: registry for npm to use during install
       isSecret: true
       default: https://registry.npmjs.org/
+version: 1.0.0
 outputs:
   srcDir:
     dir:
@@ -21,6 +22,6 @@ run:
     envVars:
       NPM_CONFIG_REGISTRY: $(registry)
     dirs:
-      /src: srcDir
-    image: { ref: 'node:8.0.0' }
+      /src: $(srcDir)
+    image: { ref: 'node:9.5.0' }
     workDir: /src
